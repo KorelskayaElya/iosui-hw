@@ -8,7 +8,6 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    //лента пользователя
    // var post = Post(title: "Мой пост")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +73,10 @@ class FeedViewController: UIViewController {
         //vc.modalPresentationStyle = .fullScreen
        // self.present(vc, animated: true)
     //}
-
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .systemIndigo
+    }
+}
 
