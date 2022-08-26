@@ -2,7 +2,7 @@
 //  ProfileHeaderView.swift
 //  Navigator
 //
-//  Created by Эля Корельская on 20/08/22.
+//  Created by Эля Корельская on 25.08.2022.
 //
 
 import UIKit

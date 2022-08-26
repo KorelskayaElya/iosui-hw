@@ -11,13 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
         //1 навигационный контроллер
-        let navController = UINavigationController(rootViewController: ProfileViewController())
+        let navController = UINavigationController(rootViewController: LogInViewController())
         //2 навигационный контроллер
         let secondItemController = FeedViewController()
         //создание панели вкладок

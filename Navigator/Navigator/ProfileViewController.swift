@@ -63,15 +63,8 @@ class ProfileViewController: UIViewController {
  
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
 }
-
-
-
-
-
-    
-    
-
-
