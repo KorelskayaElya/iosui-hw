@@ -1,15 +1,19 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableHederView.swift
 //  Navigator
 //
-//  Created by Эля Корельская on 20/08/22.
+//  Created by Эля Корельская on 05.09.2022.
 //
 
 import UIKit
 
-
-class ProfileHeaderView: UIView {
-    
+class ProfileTableHederView: UITableViewHeaderFooterView {
+    private var statusText : String = ""
+    struct ViewModel {
+        let name: String
+        let description: String
+        let image: UIImage?
+    }
     private lazy var avatarIimageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -25,7 +29,7 @@ class ProfileHeaderView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Courier New", size: 24)
         button.clipsToBounds = true
@@ -57,14 +61,18 @@ class ProfileHeaderView: UIView {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.font = UIFont(name: "Courier New", size: 15)
+        textField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0)
+        textField.placeholder = "Set your status ..."
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(self.statusTextChanged(_:)), for:.editingChanged)
         
         return textField
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.setupView()
         self.contraints()
     }
@@ -73,15 +81,17 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup(with profile: Profile)  {
+    
+    func setup(with viewModel: ViewModel) {
         self.avatarIimageView.image = UIImage(named: "cat_image")
-        self.nameLabel.text = profile.name
+        self.nameLabel.text = viewModel.name
         self.nameLabel.font = UIFont(name: "Courier New", size: 18)
         self.nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        self.descriptionLabel.text = profile.description
+        self.descriptionLabel.text = viewModel.description
         self.descriptionLabel.textColor = .darkGray
         self.descriptionLabel.font = UIFont(name: "Courier New", size: 14)
     }
+    
     
     private func setupView() {
         self.addSubview(self.avatarIimageView)
@@ -89,8 +99,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(self.nameLabel)
         self.addSubview(self.descriptionLabel)
         self.addSubview(self.textField)
-
-    }
+   }
     private func contraints() {
         NSLayoutConstraint.activate([
         //картинка
@@ -114,7 +123,7 @@ class ProfileHeaderView: UIView {
         descriptionLabel.heightAnchor.constraint(equalToConstant: 20),
         //поле для ввода статуса
         textField.topAnchor.constraint(equalTo: self.topAnchor,constant: 110),
-        textField.leadingAnchor.constraint(equalTo: self.avatarIimageView.leadingAnchor, constant: 140),
+        textField.leadingAnchor.constraint(equalTo: self.avatarIimageView.leadingAnchor, constant: 136),
         textField.heightAnchor.constraint(equalToConstant: 40),
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16)
         ])
@@ -126,14 +135,12 @@ class ProfileHeaderView: UIView {
         descriptionLabel.text = self.statusText
         
     }
-    private var statusText : String = ""
+    
     @objc func statusTextChanged(_ textField: UITextField) {
         statusText = self.textField.text ?? "nil"
         print(statusText)
-        
-        
     }
     
+
+       
 }
-
-
