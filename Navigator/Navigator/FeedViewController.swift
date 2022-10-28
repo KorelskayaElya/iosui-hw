@@ -8,8 +8,7 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    //лента пользователя
-    //var post = Post(title: "Мой пост")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
