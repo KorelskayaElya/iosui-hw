@@ -8,12 +8,15 @@
 import UIKit
 
 class ProfileTableHederView: UITableViewHeaderFooterView {
+    
     private var statusText : String = ""
+    
     struct ViewModel {
         let name: String
         let description: String
         let image: UIImage?
     }
+    
     private lazy var avatarIimageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -65,12 +68,9 @@ class ProfileTableHederView: UITableViewHeaderFooterView {
         textField.placeholder = "Set your status ..."
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(self.statusTextChanged(_:)), for:.editingChanged)
-        
         return textField
     }()
 
-
-    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -81,7 +81,6 @@ class ProfileTableHederView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     func setup(with viewModel: ViewModel) {
         self.avatarIimageView.image = UIImage(named: "cat_image")
         self.nameLabel.text = viewModel.name
@@ -91,7 +90,6 @@ class ProfileTableHederView: UITableViewHeaderFooterView {
         self.descriptionLabel.textColor = .darkGray
         self.descriptionLabel.font = UIFont(name: "Courier New", size: 14)
     }
-    
     
     private func setupView() {
         self.addSubview(self.avatarIimageView)

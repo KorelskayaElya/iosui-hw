@@ -28,13 +28,13 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     private func setupView() {
-        self.contentView.addSubview(self.photosItems)
-        
+        self.addSubview(self.photosItems)
+        //здесь ошибка и я не понимаю, что нужно исправить
         NSLayoutConstraint.activate([
-            self.photosItems.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
-            self.photosItems.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 8),
-            self.photosItems.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -8),
-            self.photosItems.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8)
+            self.photosItems.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            self.photosItems.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            self.photosItems.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            self.photosItems.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
     }
     
