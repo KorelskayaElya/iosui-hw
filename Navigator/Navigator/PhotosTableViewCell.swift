@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 protocol ButtonDelegate {
     func didTapButton(sender: UIButton)
 }
@@ -117,29 +118,21 @@ class PhotosTableViewCell: UITableViewCell {
             self.titleLabel.widthAnchor.constraint(equalToConstant: 80),
             self.titleLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            //48 все смещения по горизонтали 12 8 8 8 12
-            //56 все смещения по вертикали 12 20 12 12
+
             self.ImagePerson1.widthAnchor.constraint(equalToConstant: 90),
-            //не понимаю как сделать так, чтобы автоматически все картинки перерасчитывались при повороте экрана, 4 картинка
-            //при повороте экрана больше остальных
-            //self.ImagePerson1.widthAnchor.constraint(equalToConstant: (self.contentView.frame.size.width - 48)/4),
-            self.ImagePerson1.heightAnchor.constraint(equalToConstant: 20),
+            self.ImagePerson1.heightAnchor.constraint(equalToConstant: 90),
 
             self.ImagePerson2.widthAnchor.constraint(equalToConstant: 90),
-            //self.ImagePerson2.widthAnchor.constraint(equalToConstant: (self.contentView.frame.size.width - 48)/4),
-            self.ImagePerson2.heightAnchor.constraint(equalToConstant: 20),
+            self.ImagePerson2.heightAnchor.constraint(equalToConstant: 90),
 
             self.ImagePerson3.widthAnchor.constraint(equalToConstant: 90),
-            //self.ImagePerson3.widthAnchor.constraint(equalToConstant: (self.contentView.frame.size.width - 48)/4),
-            self.ImagePerson3.heightAnchor.constraint(equalToConstant: 20),
+            self.ImagePerson3.heightAnchor.constraint(equalToConstant: 90),
 
             self.ImagePerson4.widthAnchor.constraint(equalToConstant: 90),
-            //self.ImagePerson4.widthAnchor.constraint(equalToConstant: (self.contentView.frame.size.width - 48)/4),
-            self.ImagePerson4.heightAnchor.constraint(equalToConstant: 20),
+            self.ImagePerson4.heightAnchor.constraint(equalToConstant: 90),
 
             self.button_photos.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             self.button_photos.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
-            //вроде как я поняла нужно привязать к центру по Y к изображениям
             self.button_photos.centerYAnchor.constraint(equalTo: self.stackWithPersons.centerYAnchor,constant: -70)
         ])
     }

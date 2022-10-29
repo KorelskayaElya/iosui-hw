@@ -17,7 +17,7 @@ class PhotosViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: -8, right: -8)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         return layout
     }()
     private lazy var collection: UICollectionView = {
@@ -51,11 +51,10 @@ class PhotosViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationItem.title = "Photo Gallery"
-    }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        self.collection.collectionViewLayout.invalidateLayout()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 
 }
