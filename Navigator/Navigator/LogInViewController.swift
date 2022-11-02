@@ -3,7 +3,7 @@
 //  Navigator
 //
 //  Created by Эля Корельская on 25.08.2022.
-//
+
 
 import UIKit
 
@@ -37,8 +37,13 @@ class LogInViewController: UIViewController {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
+<<<<<<< HEAD
        }()
 
+=======
+    }()
+    
+>>>>>>> feature/iosui-7
     //логотип
     private lazy var logView: UIImageView = {
         let imageView = UIImageView()
@@ -109,6 +114,7 @@ class LogInViewController: UIViewController {
     
     private func contraintsLog() {
         NSLayoutConstraint.activate([
+<<<<<<< HEAD
         //логотип
         logView.topAnchor.constraint(equalTo: self.contentView.topAnchor,constant: 120),
         logView.widthAnchor.constraint(equalToConstant: 100),
@@ -136,6 +142,35 @@ class LogInViewController: UIViewController {
         buttonLog.heightAnchor.constraint(equalToConstant: 50),
         buttonLog.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 16),
         buttonLog.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+=======
+            //логотип
+            logView.topAnchor.constraint(equalTo: self.contentView.topAnchor,constant: 120),
+            logView.widthAnchor.constraint(equalToConstant: 100),
+            logView.centerXAnchor.constraint(equalTo:self.contentView.centerXAnchor),
+            logView.heightAnchor.constraint(equalToConstant: 100),
+            //scrollview
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            //contentview
+            contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 1.0),
+            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            //stack
+            textFieldStackView.topAnchor.constraint(equalTo: self.logView.bottomAnchor,constant: 120),
+            textFieldStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -16),
+            textFieldStackView.heightAnchor.constraint(equalToConstant: 100),
+            textFieldStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 16),
+            //button
+            buttonLog.topAnchor.constraint(equalTo: self.textFieldStackView.bottomAnchor,constant: 16),
+            buttonLog.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -16),
+            buttonLog.heightAnchor.constraint(equalToConstant: 50),
+            buttonLog.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 16),
+            buttonLog.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+>>>>>>> feature/iosui-7
         ])
         
     }
@@ -148,17 +183,28 @@ class LogInViewController: UIViewController {
         super.viewDidAppear(animated)
         self.loginTextField.becomeFirstResponder()
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> feature/iosui-7
     private let notification = NotificationCenter.default
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true //прячем NavigationBar
         notification.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         notification.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+<<<<<<< HEAD
 
     @objc private func keyboardAppear(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scrollView.contentInset.bottom = keyboardSize.height + 50 //80 - это значение, на которое хотите сместить активный объект выше клавиатуры. Выберите любое
+=======
+    
+    @objc private func keyboardAppear(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset.bottom = keyboardSize.height + 50
+>>>>>>> feature/iosui-7
             scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
         }
     }
@@ -166,21 +212,35 @@ class LogInViewController: UIViewController {
         scrollView.contentInset = .zero
         scrollView.verticalScrollIndicatorInsets = .zero
         self.view.endEditing(true)
+<<<<<<< HEAD
     
     }
 
+=======
+        
+    }
+    
+>>>>>>> feature/iosui-7
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
         notification.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         notification.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> feature/iosui-7
     @objc private func buttonPressLog(){
         let newViewController = ProfileViewController()
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
+<<<<<<< HEAD
 
 
 }
 
+=======
+}
+>>>>>>> feature/iosui-7
